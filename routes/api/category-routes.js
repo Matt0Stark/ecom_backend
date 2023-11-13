@@ -3,11 +3,9 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-// REMEMBER TO COME BACK AND CHANGE X TO MODEL
-
 router.get('/', async (req, res) => {
   try {
-    const allCategories = await X.findAll();
+    const allCategories = await Category.findAll();
     // include: []
     res.status(200).json(allCategories);
   } catch (err) {
@@ -39,7 +37,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const categoryData = await X.create(req.body);
+    const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(400).json(err);
@@ -53,7 +51,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const categoryData = await X.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id
       }

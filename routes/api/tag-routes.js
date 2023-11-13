@@ -2,11 +2,10 @@ const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
-// REMEMBER TO CHANGE THE X TO MODEL NAME
 
 router.get('/', async (req, res) => {
   try {
-    const tagsData = await X.findAll();
+    const tagsData = await Tag.findAll();
     res.status(200).json(travellerData);
   } catch (err) {
     res.status(500).json(err)
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const tagData = await X.findByPk(req.params.id, {
+    const tagData = await Tag.findByPk(req.params.id, {
       // include: [{ model: Location, through: Trip, as: 'planned_trips' }]
     });
 
@@ -35,7 +34,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const tagdata =await X.create(req.body);
+    const tagdata =await Tag.create(req.body);
     res.status(200).json(tagData);
   } catch (err) {
     res.status(400).json(err);
@@ -50,7 +49,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const tagData = await X.destroy({
+    const tagData = await Tag.destroy({
       where: {id: req.params.id}
     });
     if (!tagData) {
