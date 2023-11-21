@@ -6,7 +6,16 @@ class Category extends Model {}
 
 Category.init(
   {
-    // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    category_name:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,
@@ -20,33 +29,24 @@ Category.init(
 module.exports = Category;
 
 
-// // create fields/columns for Traveller model
-// Traveller.init(
-//   {
-//     id: {
-//       type: DataTypes.INTEGER,
-//       allowNull: false,
-//       primaryKey: true,
-//       autoIncrement: true
-//     },
-//     name: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     },
-//     email: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//       unique: true,
-//       validate: {
-//         isEmail: true
-//       }
-//     }
-//   },
-//   {
-//     sequelize,
-//     timestamps: false,
-//     freezeTableName: true,
-//     underscored: true,
-//     modelName: 'traveller'
-//   }
-// );
+
+
+
+// * `Category`
+
+//   * `id`
+
+//     * Integer.
+  
+//     * Doesn't allow null values.
+  
+//     * Set as primary key.
+  
+//     * Uses auto increment.
+
+//   * `category_name`
+  
+//     * String.
+  
+//     * Doesn't allow null values.
+
